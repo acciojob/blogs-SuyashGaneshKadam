@@ -15,8 +15,8 @@ public class Blog {
     private Integer id;
     private String title;
     private String content;
-//    @CreationTimestamp
-//    private Date pubDate;
+    @CreationTimestamp
+    private Date pubDate;
 
     @ManyToOne
     @JoinColumn
@@ -55,13 +55,13 @@ public class Blog {
         this.content = content;
     }
 
-//    public Date getPubDate() {
-//        return pubDate;
-//    }
-//
-//    public void setPubDate(Date pubDate) {
-//        this.pubDate = pubDate;
-//    }
+    public Date getPubDate() {
+        return pubDate;
+    }
+
+    public void setPubDate(Date pubDate) {
+        this.pubDate = pubDate;
+    }
 
     public User getUser() {
         return user;
