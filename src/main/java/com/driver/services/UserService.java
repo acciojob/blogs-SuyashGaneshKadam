@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -24,10 +25,11 @@ public class UserService {
     }
 
     public User updateUser(Integer id, String password){
-        if(!userRepository3.existsById(id)){
+        Optional<User> optionalUser = userRepository3.findById(id);
+        if(!optionalUser.isPresent()){
             return null;
         }
-        User user = userRepository3.findById(id).get();
+        User user = optionalUser.get();
         user.setPassword(password);
         userRepository3.save(user);
         return null;
