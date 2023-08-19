@@ -12,7 +12,7 @@ import java.util.List;
 public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer blogId;
+    private Integer id;
     private String title;
     private String content;
     @CreationTimestamp
@@ -31,12 +31,12 @@ public class Blog {
         this.content = content;
     }
 
-    public Integer getBlogId() {
-        return blogId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setBlogId(Integer blogId) {
-        this.blogId = blogId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTitle() {
