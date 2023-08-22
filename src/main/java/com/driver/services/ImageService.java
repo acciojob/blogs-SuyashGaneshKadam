@@ -35,10 +35,33 @@ public class ImageService {
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
         Image image = imageRepository2.findById(id).get();
         String dimensions = image.getDimensions();
-        int midDim = dimensions.length() / 2;
-        int midNewDim = screenDimensions.length() / 2;
-        int dim = Integer.parseInt(dimensions.substring(0,midDim)) * Integer.parseInt(dimensions.substring(midDim + 1));
-        int newDim = Integer.parseInt(screenDimensions.substring(0,midNewDim)) * Integer.parseInt(screenDimensions.substring(midNewDim+1));
-        return newDim/dim;
+        int xi = 0, yi = 0, xs = 0, ys = 0, num = 0;
+        for(int i=0 ; i<dimensions.length() ; i++){
+            if(dimensions.charAt(i) == 'X'){
+                xi = num;
+                num = 0;
+                continue;
+            }
+            num *= 10;
+            num += (dimensions.charAt(i) - '0');
+        }
+        yi = num;
+        num = 0;
+        for(int i=0 ; i<dimensions.length() ; i++){
+            if(dimensions.charAt(i) == 'X'){
+                xs = num;
+                num = 0;
+                continue;
+            }
+            num *= 10;
+            num += (dimensions.charAt(i) - '0');
+        }
+        ys = num;
+        double x = xs;
+        double y = ys;
+        double x1 = xi;
+        double y1 = yi;
+        int ans = (int) (Math.floor((x)/(x1)) * Math.floor((y)/(y1)));
+        return ans;
     }
 }
