@@ -44,7 +44,7 @@ public class ImageService {
         Double x2 = Double.parseDouble(screenDimensions.substring(0, length/2));
         Double y2 = Double.parseDouble(screenDimensions.substring(length/2 + 1));
 
-        int ans = (int) (Math.floor((x1)/(x2)) * Math.floor((y1)/(y2)));
+        int ans = (int) (Math.floor((x2)/(x1)) * Math.floor((y2)/(y1)));
         return ans;
     }
 }
